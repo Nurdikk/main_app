@@ -26,10 +26,10 @@
         <div class="main-content">
             <div class="tab-wrapper">
                 <div id="content-doc" class="tab-pane">
-                    <div class="doc-card-container">
-                        <label for="upload-input" class="upload-label">
-                            <div class="upload-placeholder">Нажмите, чтобы загрузить фото</div>
-                            <img id="doc-preview" class="preview-img">
+                    <div class="doc-card-view">
+                        <label for="upload-input" class="upload-area">
+                            <div class="upload-text">Нажмите для загрузки удостоверения</div>
+                            <img id="doc-preview" class="id-card-img">
                         </label>
                         <input type="file" id="upload-input" accept="image/*" onchange="handleImage(this)">
                     </div>
@@ -39,28 +39,47 @@
                     <div class="requisites-list">
                         <div class="req-item">
                             <label>ФИО</label>
-                            <div class="input-row"><span>Емберді Нұрдаулет Ерболұлы</span><img src="share.png" class="mini-copy"></div>
+                            <div class="input-row">
+                                <input type="text" value="Емберді Нұрдаулет Ерболұлы">
+                                <span class="copy-btn">❐</span>
+                            </div>
                         </div>
                         <div class="req-item">
                             <label>ИИН</label>
-                            <div class="input-row"><span>070604501304</span><img src="share.png" class="mini-copy"></div>
+                            <div class="input-row">
+                                <input type="number" value="070604501304">
+                                <span class="copy-btn">❐</span>
+                            </div>
                         </div>
                         <div class="req-item">
                             <label>Дата рождения</label>
-                            <div class="input-row"><span>04.06.2007</span><img src="share.png" class="mini-copy"></div>
+                            <div class="input-row">
+                                <input type="text" value="04.06.2007">
+                                <span class="copy-btn">❐</span>
+                            </div>
                         </div>
                         <div class="req-item">
                             <label>Номер документа</label>
-                            <div class="input-row"><span>053644685</span><img src="share.png" class="mini-copy"></div>
+                            <div class="input-row">
+                                <input type="text" value="053644685">
+                                <span class="copy-btn">❐</span>
+                            </div>
                         </div>
                         <div class="req-item">
                             <label>Дата выдачи</label>
-                            <div class="input-row"><span>23.06.2023</span><img src="share.png" class="mini-copy"></div>
+                            <div class="input-row">
+                                <input type="text" value="23.06.2023">
+                                <span class="copy-btn">❐</span>
+                            </div>
                         </div>
                         <div class="req-item">
                             <label>Срок действия</label>
-                            <div class="input-row"><span>22.06.2033</span><img src="share.png" class="mini-copy"></div>
+                            <div class="input-row">
+                                <input type="text" value="22.06.2033">
+                                <span class="copy-btn">❐</span>
+                            </div>
                         </div>
+                        <div style="height: 150px;"></div>
                     </div>
                 </div>
             </div>
@@ -102,13 +121,13 @@
 
         function handleImage(input) {
             const preview = document.getElementById('doc-preview');
-            const placeholder = document.querySelector('.upload-placeholder');
+            const text = document.querySelector('.upload-text');
             if (input.files && input.files[0]) {
                 const reader = new FileReader();
                 reader.onload = e => {
                     preview.src = e.target.result;
                     preview.style.display = 'block';
-                    placeholder.style.display = 'none';
+                    text.style.display = 'none';
                 }
                 reader.readAsDataURL(input.files[0]);
             }
