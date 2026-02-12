@@ -139,8 +139,8 @@ body { background: #333; display: flex; justify-content: center; align-items: ce
     font-weight: 600;
 }
 .btn-icon {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 20px;
     margin-right: 8px;
     vertical-align: middle;
 }
@@ -150,6 +150,7 @@ body { background: #333; display: flex; justify-content: center; align-items: ce
 .nav-ic { font-size: 22px; display: block; margin-bottom: 2px; }
 .nav-btn span:last-child { font-size: 10px; }
 .nav-btn.active { color: var(--kaspi-red); }
+
 
 
 
