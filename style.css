@@ -22,11 +22,11 @@ body { background: #fff; overflow-x: hidden; }
 .tab-btn { flex: 1; border: none; padding: 10px; border-radius: 8px; font-size: 14px; background: transparent; transition: 0.2s; }
 .tab-btn.active { background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-weight: 500; }
 
-/* Оболочка для перехода */
+/* Анимация перехода */
 .tab-wrapper { display: flex; width: 100%; overflow: hidden; align-items: flex-start; }
 .tab-pane { min-width: 100%; transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1); padding: 0 15px; }
 
-/* Зона фото */
+/* Область фото */
 .doc-view-area {
     width: 100%; aspect-ratio: 1.58 / 1; background: #f2f2f5; border-radius: 12px;
     margin-bottom: 20px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;
@@ -35,7 +35,7 @@ body { background: #fff; overflow-x: hidden; }
 .upload-btn-inner { color: var(--kaspi-blue); font-weight: 600; }
 #upload-input { display: none; }
 
-/* Реквизиты */
+/* Список реквизитов */
 .req-item { border-bottom: 1px solid #f0f0f0; padding: 15px 0; }
 .req-item label { font-size: 12px; color: var(--text-gray); display: block; margin-bottom: 4px; }
 .input-row { display: flex; justify-content: space-between; align-items: center; }
@@ -57,7 +57,7 @@ body { background: #fff; overflow-x: hidden; }
 .btn-primary { background: var(--kaspi-blue); color: white; }
 .btn-secondary { background: white; color: var(--kaspi-blue); border: 1.5px solid #e2e8f0; }
 
-/* Иконки на кнопках */
+/* Иконки кнопок */
 .btn-icon {
     width: 20px; height: 20px; margin-right: 10px; object-fit: contain;
 }
