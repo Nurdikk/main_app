@@ -126,9 +126,14 @@
     </div>
     <script>
         function showScreen(id) {
-            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-            document.getElementById('screen-' + id).classList.add('active');
-        }
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('screen-' + id).classList.add('active');
+    const nav = document.querySelector('.bottom-nav');
+    if(id === 'doc')
+        nav.style.display = 'none';
+    else
+        nav.style.display = 'flex';
+}
         function switchTab(type) {
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
@@ -156,5 +161,6 @@
     </script>
 </body>
 </html>
+
 
 
