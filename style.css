@@ -123,11 +123,18 @@ body { background: #333; display: flex; justify-content: center; align-items: ce
     font-size: 16px;
     font-weight: 600;
 }
+.btn-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
 /* Navigation */
 .bottom-nav { position: absolute; bottom: 0; width: 100%; height: 75px; background: white; border-top: 1px solid #eee; display: flex; justify-content: space-around; padding-top: 10px; }
 .nav-btn { text-align: center; color: #b2b2b2; cursor: pointer; }
 .nav-ic { font-size: 22px; display: block; margin-bottom: 2px; }
 .nav-btn span:last-child { font-size: 10px; }
 .nav-btn.active { color: var(--kaspi-red); }
+
 
 
