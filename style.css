@@ -64,7 +64,13 @@ body { background: #333; display: flex; justify-content: center; align-items: ce
 .s-item span { font-size: 11px; color: #333; font-weight: 500; }
 
 /* Doc Screen */
-.doc-header { padding: 40px 15px 15px; display: flex; align-items: center; }
+.doc-header {
+    padding: 40px 15px 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .back-btn { font-size: 35px; color: #333; cursor: pointer; margin-right: 15px; margin-top: -5px; }
 .doc-header h1 { font-size: 18px; font-weight: 600; }
 
@@ -135,6 +141,7 @@ body { background: #333; display: flex; justify-content: center; align-items: ce
 .nav-ic { font-size: 22px; display: block; margin-bottom: 2px; }
 .nav-btn span:last-child { font-size: 10px; }
 .nav-btn.active { color: var(--kaspi-red); }
+
 
 
 
