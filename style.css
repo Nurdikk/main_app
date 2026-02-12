@@ -4,6 +4,9 @@
     --bg-gray: #f2f2f5;
     --text-gray: #8e8e93;
 }
+:root {
+    color-scheme: light;
+}
 
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, sans-serif; }
 body {
@@ -91,4 +94,5 @@ body { background: #333; display: flex; justify-content: center; align-items: ce
 .nav-btn { text-align: center; color: #b2b2b2; cursor: pointer; }
 .nav-ic { font-size: 22px; display: block; margin-bottom: 2px; }
 .nav-btn span:last-child { font-size: 10px; }
+
 .nav-btn.active { color: var(--kaspi-red); }
