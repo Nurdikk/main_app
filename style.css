@@ -87,8 +87,27 @@ body { background: #333; display: flex; justify-content: center; align-items: ce
 .tab-btn { flex: 1; border: none; padding: 8px; border-radius: 8px; font-size: 14px; cursor: pointer; color: #555; background: transparent; }
 .tab-btn.active { background: white; color: black; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 
-.tab-pane { display: none; padding: 20px 15px; }
-.tab-pane.active { display: block; }
+.tab-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-pane {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px 15px;
+    transition: transform 0.35s ease;
+}
+
+#content-doc {
+    transform: translateX(0%);
+}
+
+#content-req {
+    transform: translateX(100%);
+}
 #content-doc {
     padding-bottom: 200px;
 }
@@ -150,6 +169,7 @@ body { background: #333; display: flex; justify-content: center; align-items: ce
 .nav-ic { font-size: 22px; display: block; margin-bottom: 2px; }
 .nav-btn span:last-child { font-size: 10px; }
 .nav-btn.active { color: var(--kaspi-red); }
+
 
 
 
