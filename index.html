@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
     <title>Kaspi Digital Documents</title>
-    
-    <link rel="apple-touch-icon" href="icon.png">
-    <link rel="icon" type="image/png" href="icon.png">
-    
     <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" href="icon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
@@ -19,10 +16,12 @@
                 <div class="back-btn" onclick="location.reload()">‹</div>
                 <h1>Удостоверение личности</h1>
             </header>
+            
             <div class="tab-switcher">
                 <button class="tab-btn active" id="tab-btn-doc" onclick="switchTab('doc')">Документ</button>
                 <button class="tab-btn" id="tab-btn-req" onclick="switchTab('req')">Реквизиты</button>
             </div>
+            
             <div class="tab-wrapper">
                 <div id="content-doc" class="tab-pane">
                     <div class="doc-view-area">
@@ -33,11 +32,16 @@
                         <input type="file" id="upload-input" accept="image/*" onchange="handleImage(this)">
                     </div>
                     
-                    <div class="action-buttons-inline">
-                        <button class="btn-primary">Предъявить документ</button>
-                        <button class="btn-secondary">Отправить документ</button>
+                    <div class="action-buttons-area">
+                        <button class="btn-primary">
+                            <img src="qr.png" class="btn-icon"> Предъявить документ
+                        </button>
+                        <button class="btn-secondary">
+                            <img src="share.png" class="btn-icon"> Отправить документ
+                        </button>
                     </div>
                 </div>
+
                 <div id="content-req" class="tab-pane">
                     <div class="requisites-list">
                         <div class="req-item">
@@ -64,21 +68,25 @@
                             <label>Срок действия</label>
                             <div class="input-row"><input type="text" placeholder="ДД.ММ.ГГГГ"><span class="copy-ic">❐</span></div>
                         </div>
-                        <div style="height: 180px;"></div>
-                    </div>
-                    <div class="action-buttons-fixed">
-                        <button class="btn-secondary">Отправить реквизиты</button>
+                        <div style="height: 120px;"></div> </div>
+                    
+                    <div class="action-buttons-area fixed-bottom">
+                        <button class="btn-secondary">
+                            <img src="share.png" class="btn-icon"> Отправить реквизиты
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <script>
         function switchTab(type) {
             const docContent = document.getElementById('content-doc');
             const reqContent = document.getElementById('content-req');
             const btnDoc = document.getElementById('tab-btn-doc');
             const btnReq = document.getElementById('tab-btn-req');
+            
             if(type === 'doc') {
                 btnDoc.classList.add('active');
                 btnReq.classList.remove('active');
@@ -91,6 +99,7 @@
                 reqContent.style.transform = 'translateX(-100%)';
             }
         }
+
         function handleImage(input) {
             const preview = document.getElementById('doc-preview');
             const placeholder = document.querySelector('.upload-btn-inner');
@@ -98,8 +107,8 @@
                 const reader = new FileReader();
                 reader.onload = e => {
                     preview.src = e.target.result;
-                    preview.style.display = 'block'; 
-                    if (placeholder) placeholder.style.display = 'none'; 
+                    preview.style.display = 'block';
+                    if (placeholder) placeholder.style.display = 'none';
                 }
                 reader.readAsDataURL(input.files[0]);
             }
