@@ -1,63 +1,66 @@
 :root {
     --kaspi-blue: #0056d1;
-    --text-gray: #8e8e93;
+    --kaspi-bg: #f8f8f9;
+    --text-gray: #999;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, sans-serif; }
 
-body { background: #fff; overflow-x: hidden; }
+body { background: white; height: 100vh; overflow: hidden; }
 
-/* Шапка */
+.app-container { display: flex; flex-direction: column; height: 100vh; }
+
+/* Header */
 .doc-header {
-    padding: calc(45px + env(safe-area-inset-top)) 15px 15px;
+    padding: calc(45px + env(safe-area-inset-top)) 20px 10px;
     display: flex; align-items: center; justify-content: center; position: relative;
 }
-.back-btn { position: absolute; left: 15px; font-size: 30px; color: #333; cursor: pointer; }
-.doc-header h1 { font-size: 18px; font-weight: 600; }
+.back-btn { position: absolute; left: 15px; font-size: 32px; color: #333; cursor: pointer; }
+.doc-header h1 { font-size: 19px; font-weight: 600; }
 
-/* Табы */
+/* Табы (в стиле Kaspi) */
+.tab-switcher-container { padding: 5px 16px; background: white; }
 .tab-switcher { 
-    display: flex; background: #efeff0; margin: 10px 15px; border-radius: 10px; padding: 2px; 
+    display: flex; background: #eeeff1; border-radius: 10px; padding: 2px;
 }
-.tab-btn { flex: 1; border: none; padding: 10px; border-radius: 8px; font-size: 14px; background: transparent; transition: 0.2s; }
-.tab-btn.active { background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-weight: 500; }
-
-/* Анимация перехода */
-.tab-wrapper { display: flex; width: 100%; overflow: hidden; align-items: flex-start; }
-.tab-pane { min-width: 100%; transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1); padding: 0 15px; }
-
-/* Область фото */
-.doc-view-area {
-    width: 100%; aspect-ratio: 1.58 / 1; background: #f2f2f5; border-radius: 12px;
-    margin-bottom: 20px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;
+.tab-btn { 
+    flex: 1; border: none; padding: 10px; border-radius: 9px; font-size: 15px; 
+    background: transparent; color: #777; transition: 0.2s;
 }
-.preview-img { position: absolute; width: 100%; height: 100%; object-fit: cover; display: none; z-index: 2; }
-.upload-btn-inner { color: var(--kaspi-blue); font-weight: 600; }
+.tab-btn.active { background: white; color: #000; font-weight: 500; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+
+/* Контентная часть */
+.main-content { flex: 1; overflow: hidden; }
+.tab-wrapper { display: flex; width: 100%; height: 100%; }
+.tab-pane { min-width: 100%; height: 100%; overflow-y: auto; padding: 20px 16px; transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+
+/* Карточка документа */
+.doc-card-container {
+    width: 100%; aspect-ratio: 1 / 1.5; background: #eeeff1; border-radius: 16px; overflow: hidden; position: relative;
+}
+.upload-label { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.upload-placeholder { color: var(--kaspi-blue); font-size: 14px; text-align: center; padding: 20px; }
+.preview-img { position: absolute; width: 100%; height: 100%; object-fit: contain; display: none; }
 #upload-input { display: none; }
 
-/* Список реквизитов */
-.req-item { border-bottom: 1px solid #f0f0f0; padding: 15px 0; }
-.req-item label { font-size: 12px; color: var(--text-gray); display: block; margin-bottom: 4px; }
-.input-row { display: flex; justify-content: space-between; align-items: center; }
-.input-row input { border: none; outline: none; font-size: 16px; width: 100%; color: #000; }
-.copy-ic { color: #d1d1d6; font-size: 18px; }
+/* Реквизиты */
+.req-item { margin-bottom: 20px; }
+.req-item label { font-size: 13px; color: var(--text-gray); display: block; margin-bottom: 5px; }
+.input-row { display: flex; justify-content: space-between; align-items: center; font-size: 17px; color: #000; }
+.mini-copy { width: 20px; height: 20px; opacity: 0.3; }
 
-/* Кнопки */
-.action-buttons-area { margin-top: 20px; }
-.fixed-bottom {
-    position: fixed; bottom: 0; left: 0; right: 0;
-    padding: 15px 15px calc(20px + env(safe-area-inset-bottom));
-    background: white; z-index: 10;
+/* Нижние кнопки (Fixed) */
+.bottom-actions {
+    padding: 16px 16px calc(20px + env(safe-area-inset-bottom));
+    background: white; border-top: 1px solid #f0f0f0;
 }
+.actions-group { display: none; }
+.actions-group.active { display: block; }
 
-.btn-primary, .btn-secondary {
-    width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 600;
-    border: none; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
+.btn-blue, .btn-white {
+    width: 100%; padding: 15px; border-radius: 12px; font-size: 17px; font-weight: 600; 
+    display: flex; align-items: center; justify-content: center; margin-bottom: 12px; border: none;
 }
-.btn-primary { background: var(--kaspi-blue); color: white; }
-.btn-secondary { background: white; color: var(--kaspi-blue); border: 1.5px solid #e2e8f0; }
-
-/* Иконки кнопок */
-.btn-icon {
-    width: 20px; height: 20px; margin-right: 10px; object-fit: contain;
-}
+.btn-blue { background: var(--kaspi-blue); color: white; }
+.btn-white { background: white; color: var(--kaspi-blue); border: 1px solid #e0e0e0; }
+.btn-ic { width: 22px; height: 22px; margin-right: 10px; }
