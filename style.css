@@ -5,6 +5,9 @@
     --bg-gray: #f2f2f5;
     --text-gray: #8e8e93;
 }
+html, body {
+    touch-action: manipulation;
+}
 :root {
     color-scheme: light;
 }
@@ -147,6 +150,7 @@ body { background: #333; display: flex; justify-content: center; align-items: ce
 .nav-ic { font-size: 22px; display: block; margin-bottom: 2px; }
 .nav-btn span:last-child { font-size: 10px; }
 .nav-btn.active { color: var(--kaspi-red); }
+
 
 
 
