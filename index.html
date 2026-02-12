@@ -2,158 +2,97 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
     <title>Kaspi Digital Documents</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="apple-touch-icon" href="icon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Kaspi App">
 </head>
 <body>
     <div class="app-container">
-        <div id="screen-main" class="screen active">
-            <header class="main-header">
-                <div class="search-box">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" placeholder="Поиск по Kaspi.kz">
-                </div>
-                <div class="top-qr">🔔</div>
-            </header>
-            <div class="banner-zhuma">
-                <div class="zhuma-content">
-                    <img src="https://img.icons8.com/color/96/gift.png" alt="gift" class="banner-img-left">
-                    <div class="zhuma-text">
-                        <h2>KASPI ЖҰМА</h2>
-                        <div class="zhuma-badges">
-                            <span class="z-badge yel">0•0•24</span>
-                            <span class="z-badge grn">🔥 Бонусы</span>
-                            <span class="z-badge wht">до -50%</span>
-                        </div>
-                        <p>12-15 февраля</p>
-                    </div>
-                </div>
-            </div>
-            <div class="services-menu">
-                <div class="s-item"><div class="s-icon red">🛒</div><span>Магазин</span></div>
-                <div class="s-item"><div class="s-icon red">💳</div><span>Мой Банк</span></div>
-                <div class="s-item"><div class="s-icon red">🏛️</div><span>Платежи</span></div>
-                <div class="s-item"><div class="s-icon red">🔄</div><span>Переводы</span></div>
-                <div class="s-item"><div class="s-icon mag">m</div><span>Magnum</span></div>
-                <div class="s-item"><div class="s-icon red">✈️</div><span>Travel</span></div>
-                <div class="s-item"><div class="s-icon blue">🏛️</div><span>Госуслуги</span></div>
-                <div class="s-item"><div class="s-icon orange">🏠</div><span>Объявления</span></div>
-            </div>
-        </div>
-        <div id="screen-doc" class="screen">
+        <div id="screen-doc" class="screen active">
             <header class="doc-header">
-                <div class="back-btn" onclick="showScreen('main')">‹</div>
+                <div class="back-btn" onclick="location.reload()">‹</div>
                 <h1>Удостоверение личности</h1>
             </header>
+
             <div class="tab-switcher">
                 <button class="tab-btn active" id="tab-btn-doc" onclick="switchTab('doc')">Документ</button>
                 <button class="tab-btn" id="tab-btn-req" onclick="switchTab('req')">Реквизиты</button>
             </div>
+
             <div class="tab-wrapper">
-    <div id="content-doc" class="tab-pane">
-                <div class="doc-view-area">
+                <div id="content-doc" class="tab-pane">
+                    <div class="doc-view-area">
+                        <label for="upload-input" class="upload-placeholder">
+                            <div class="upload-btn-inner">Загрузить</div>
+                            <img id="doc-preview" class="preview-img">
+                        </label>
+                        <input type="file" id="upload-input" accept="image/*" onchange="handleImage(this)">
                     </div>
-                    <label for="upload-input" class="upload-placeholder">
-                        <div class="upload-btn-inner">Загрузить</div>
-                        <img id="doc-preview" class="preview-img">
-                    </label>
-                    <input type="file" id="upload-input" accept="image/*" onchange="handleImage(this)">
+                    
+                    <div class="action-buttons-inline">
+                        <button class="btn-primary">Предъявить документ</button>
+                        <button class="btn-secondary">Отправить документ</button>
+                    </div>
                 </div>
-                <div class="action-buttons">
-                    <button class="btn-primary">
-    <img src="qr.png" class="btn-icon"> Предъявить документ
-</button>
-<button class="btn-secondary">
-    <img src="share.png" class="btn-icon"> Отправить документ
-</button>
-                </div>
-            </div>
-            <div id="content-req" class="tab-pane">
-                <div class="requisites-list">
-                    <div class="req-item">
+
+                <div id="content-req" class="tab-pane">
+                    <div class="requisites-list">
+                        <div class="req-item">
+                            <label>ФИО</label>
+                            <div class="input-row"><input type="text" placeholder="Введите ФИО"><span class="copy-ic">❐</span></div>
                         </div>
-                        <label>ФИО</label>
-                        <div class="input-row"><input type="text" placeholder="Введите ФИО"><span class="copy-ic">❐</span></div>
+                        <div class="req-item">
+                            <label>ИИН</label>
+                            <div class="input-row"><input type="number" placeholder="Введите ИИН"><span class="copy-ic">❐</span></div>
+                        </div>
+                        <div class="req-item">
+                            <label>Дата рождения</label>
+                            <div class="input-row"><input type="text" placeholder="ДД.ММ.ГГГГ"><span class="copy-ic">❐</span></div>
+                        </div>
+                        <div class="req-item">
+                            <label>Номер документа</label>
+                            <div class="input-row"><input type="text" placeholder="000000000"><span class="copy-ic">❐</span></div>
+                        </div>
+                        <div class="req-item">
+                            <label>Дата выдачи</label>
+                            <div class="input-row"><input type="text" placeholder="ДД.ММ.ГГГГ"><span class="copy-ic">❐</span></div>
+                        </div>
+                        <div class="req-item">
+                            <label>Срок действия</label>
+                            <div class="input-row"><input type="text" placeholder="ДД.ММ.ГГГГ"><span class="copy-ic">❐</span></div>
+                        </div>
+                        <div style="height: 180px;"></div>
                     </div>
-                    <div class="req-item">
-                        <label>ИИН</label>
-                        <div class="input-row"><input type="number" placeholder="Введите ИИН"><span class="copy-ic">❐</span></div>
+
+                    <div class="action-buttons-fixed">
+                        <button class="btn-secondary">Отправить реквизиты</button>
                     </div>
-                    <div class="req-item">
-                        <label>Дата рождения</label>
-                        <div class="input-row"><input type="text" placeholder="ДД.ММ.ГГГГ"><span class="copy-ic">❐</span></div>
-                    </div>
-                    <div class="req-item">
-                        <label>Номер документа</label>
-                        <div class="input-row"><input type="text" placeholder="000000000"><span class="copy-ic">❐</span></div>
-                    </div>
-                    <div class="req-item">
-                        <label>Дата выдачи</label>
-                        <div class="input-row"><input type="text" placeholder="ДД.ММ.ГГГГ"><span class="copy-ic">❐</span></div>
-                    </div>
-                    <div class="req-item">
-                        <label>Срок действия</label>
-                        <div class="input-row"><input type="text" placeholder="ДД.ММ.ГГГГ"><span class="copy-ic">❐</span></div>
-                    </div>
-                </div>
-                <div class="action-buttons">
-                    <button class="btn-secondary">
-                        <img src="share.png" class="btn-icon"> Отправить реквизиты
-                    </button>
                 </div>
             </div>
         </div>
-        <footer class="bottom-nav">
-            <div class="nav-btn active" onclick="showScreen('main')">
-                <span class="nav-ic">🏠</span>
-                <span>Главная</span>
-            </div>
-            <div class="nav-btn">
-                <span class="nav-ic">🔳</span>
-                <span>Kaspi QR</span>
-            </div>
-            <div class="nav-btn">
-                <span class="nav-ic">💬</span>
-                <span>Сообщения</span>
-            </div>
-            <div class="nav-btn" onclick="showScreen('doc')">
-                <span class="nav-ic">≡</span>
-                <span>Сервисы</span>
-            </div>
-        </footer>
     </div>
+
     <script>
-        function showScreen(id) {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.getElementById('screen-' + id).classList.add('active');
-    const nav = document.querySelector('.bottom-nav');
-    if(id === 'doc')
-        nav.style.display = 'none';
-    else
-        nav.style.display = 'flex';
-}
         function switchTab(type) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            const docContent = document.getElementById('content-doc');
+            const reqContent = document.getElementById('content-req');
+            const btnDoc = document.getElementById('tab-btn-doc');
+            const btnReq = document.getElementById('tab-btn-req');
 
-    if(type === 'doc') {
-        document.getElementById('tab-btn-doc').classList.add('active');
+            if(type === 'doc') {
+                btnDoc.classList.add('active');
+                btnReq.classList.remove('active');
+                docContent.style.transform = 'translateX(0%)';
+                reqContent.style.transform = 'translateX(0%)';
+            } else {
+                btnReq.classList.add('active');
+                btnDoc.classList.remove('active');
+                docContent.style.transform = 'translateX(-100%)';
+                reqContent.style.transform = 'translateX(-100%)';
+            }
+        }
 
-        document.getElementById('content-doc').style.transform = 'translateX(0%)';
-        document.getElementById('content-req').style.transform = 'translateX(100%)';
-    }
-    else {
-        document.getElementById('tab-btn-req').classList.add('active');
-
-        document.getElementById('content-doc').style.transform = 'translateX(-100%)';
-        document.getElementById('content-req').style.transform = 'translateX(0%)';
-    }
-}
         function handleImage(input) {
             const preview = document.getElementById('doc-preview');
             const placeholder = document.querySelector('.upload-btn-inner');
@@ -170,10 +109,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
