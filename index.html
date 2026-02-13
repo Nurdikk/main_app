@@ -15,14 +15,12 @@
             <div class="back-btn" onclick="location.reload()">‹</div>
             <h1>Удостоверение личности</h1>
         </header>
-
         <div class="tab-switcher-container">
             <div class="tab-switcher">
                 <button class="tab-btn active" id="tab-btn-doc" onclick="switchTab('doc')">Документ</button>
                 <button class="tab-btn" id="tab-btn-req" onclick="switchTab('req')">Реквизиты</button>
             </div>
         </div>
-
         <div class="main-content">
             <div class="tab-wrapper">
                 <div id="content-doc" class="tab-pane">
@@ -34,7 +32,6 @@
                         <input type="file" id="upload-input" accept="image/*" onchange="handleImage(this)">
                     </div>
                 </div>
-
                 <div id="content-req" class="tab-pane">
                     <div class="requisites-list">
                         <div class="req-item">
@@ -84,7 +81,6 @@
                 </div>
             </div>
         </div>
-
         <div class="bottom-actions">
             <div id="actions-doc" class="actions-group active">
                 <button class="btn-blue"><img src="qr.png" class="btn-ic"> Предъявить документ</button>
@@ -95,17 +91,14 @@
             </div>
         </div>
     </div>
-
     <script>
         function switchTab(type) {
             const docContent = document.getElementById('content-doc');
             const reqContent = document.getElementById('content-req');
             const actionsDoc = document.getElementById('actions-doc');
             const actionsReq = document.getElementById('actions-req');
-            
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById('tab-btn-' + type).classList.add('active');
-
             if(type === 'doc') {
                 docContent.style.transform = 'translateX(0%)';
                 reqContent.style.transform = 'translateX(0%)';
@@ -118,21 +111,21 @@
                 actionsReq.classList.add('active');
             }
         }
-
-        function handleImage(input) {
-            const preview = document.getElementById('doc-preview');
-            const text = document.querySelector('.upload-text');
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                reader.onload = e => {
-                    preview.src = e.target.result;
-                    preview.style.display = 'block';
-                    text.style.display = 'none';
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
+function handleImage(input) {
+    const preview = document.getElementById('doc-preview');
+    const text = document.querySelector('.upload-text');
+    const uploadArea = document.querySelector('.upload-area'); // Находим область клика
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = e => {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+            text.style.display = 'none';
+            uploadArea.style.pointerEvents = 'none'; 
         }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
     </script>
 </body>
 </html>
-
